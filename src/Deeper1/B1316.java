@@ -1,6 +1,6 @@
 package Deeper1;
 import java.util.Scanner;
-public class Main {
+public class B1316 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
@@ -15,21 +15,20 @@ public class Main {
     }
 
     static boolean check(String str){
-        char[] arr = new char[26];
-        int i = 1;
-        arr[0] = str.charAt(0);
-
-        while (i <= str.length() - 1) {
+        int[] arr = new int[26];
+        arr[str.charAt(0)-'a'] = 1;
+        for (int i = 1; i < str.length(); i++){
             char c = str.charAt(i);
-            if (arr[c - 'a'] == 0) { // 나온 적 없는 알파벳
-                arr[c - 'a'] = 1;
-                i++;
-            } else { // 나온 적 있는 알파벳
-                if (c != str.charAt(i - 1)) {
+
+            if (arr[c - 'a'] == 0) { // 해당 알파벳이 처음 나오면
+                arr[c-'a'] = 1;
+            } else { // 처음이 아니면
+                if (c == str.charAt(i - 1)) {
+                    continue;
+                } else {
                     return false;
-                } i++;
+                }
             }
-        }
-        return true;
+        } return true;
     }
 }
