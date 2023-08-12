@@ -1,4 +1,4 @@
-package Stack;
+package Stack_Queue_Deque;
 
 import java.util.Scanner;
 public class B10773 {
